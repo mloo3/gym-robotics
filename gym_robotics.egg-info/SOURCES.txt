@@ -1,7 +1,0 @@
-README.md
-setup.py
-gym_robotics.egg-info/PKG-INFO
-gym_robotics.egg-info/SOURCES.txt
-gym_robotics.egg-info/dependency_links.txt
-gym_robotics.egg-info/requires.txt
-gym_robotics.egg-info/top_level.txt
