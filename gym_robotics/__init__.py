@@ -12,3 +12,10 @@ for reward_type in ['sparse', 'dense']:
             kwargs=kwargs,
             max_episode_steps=50,
       )
+
+      register(
+            id='TwoBlocks{}-v1'.format(suffix),
+            entry_point='gym_robotics.envs:FetchTwoBlocksEnv',
+            kwargs=kwargs,
+            max_episode_steps=50,
+      )
