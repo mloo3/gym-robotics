@@ -1,0 +1,60 @@
+<mujoco model="open_manipulator_p_with_gripper">
+    <compiler angle="radian" meshdir="../stls/open_mani/" />
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="link1" file="link1.stl" scale="0.001 0.001 0.001" />
+        <mesh name="link2" file="link2.stl" scale="0.001 0.001 0.001" />
+        <mesh name="link3" file="link3.stl" scale="0.001 0.001 0.001" />
+        <mesh name="link4" file="link4.stl" scale="0.001 0.001 0.001" />
+        <mesh name="link5" file="link5.stl" scale="0.001 0.001 0.001" />
+        <mesh name="link6" file="link6.stl" scale="0.001 0.001 0.001" />
+        <mesh name="end_link" file="end_link.stl" scale="0.001 0.001 0.001" />
+        <mesh name="gripper_main_link" file="gripper_main_link.stl" scale="0.001 0.001 0.001" />
+        <mesh name="gripper_link" file="gripper_link.stl" scale="0.001 0.001 0.001" />
+        <mesh name="gripper_sub_link" file="gripper_sub_link.stl" scale="0.001 0.001 0.001" />
+    </asset>
+    <worldbody>
+        <geom type="mesh" mesh="link1" />
+        <body name="link2" pos="0 0 0.126">
+            <inertial pos="0 0.0008 0.03183" mass="0.94658" diaginertia="1 1 1" />
+            <joint name="joint1" pos="0 0 0" axis="0 0 1" limited="true" range="-1.5708 1.5708" damping="0.7" />
+            <geom type="mesh" mesh="link2" />
+            <body name="link3" pos="0 0.069 0.033">
+                <inertial pos="0.01768 -0.06881 0.20524" mass="1.3026" diaginertia="1 1 1" />
+                <joint name="joint2" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="0.7" />
+                <geom type="mesh" mesh="link3" />
+                <body name="link4" pos="0.03 -0.0115 0.264">
+                    <inertial pos="0.12475 -0.05716 0.02979" mass="1.15977" diaginertia="1 1 1" />
+                    <joint name="joint3" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="0.7" />
+                    <geom type="mesh" mesh="link4" />
+                    <body name="link5" pos="0.195 -0.0575 0.03">
+                        <inertial pos="0.05642 -0.00217 2e-05" mass="0.44688" diaginertia="1 1 1" />
+                        <joint name="joint4" pos="0 0 0" axis="1 0 0" limited="true" range="-1.5708 1.5708" damping="0.7" />
+                        <geom type="mesh" mesh="link5" />
+                        <body name="link6" pos="0.063 0.045 0">
+                            <inertial pos="0.06831 -0.04457 0" mass="0.43273" diaginertia="1 1 1" />
+                            <joint name="joint5" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="0.7" />
+                            <geom type="mesh" mesh="link6" />
+                            <body name="end_link" pos="0.123 -0.045 0">
+                                <inertial pos="0.00713292 0 0" quat="0.5 0.5 0.5 0.5" mass="0.52919" diaginertia="3.00002 3.00002 3" />
+                                <joint name="joint6" pos="0 0 0" axis="1 0 0" limited="true" range="-1.5708 1.5708" damping="0.7" />
+                                <geom type="mesh" mesh="end_link" />
+                                <geom pos="0.007 0 0" type="mesh" mesh="gripper_main_link" />
+                                <body name="gripper_link" pos="0.0622 -0.04 0" quat="0.980067 0 0 -0.198669">
+                                    <inertial pos="0 0 0" mass="0.013" diaginertia="1 1 1" />
+                                    <joint name="gripper" pos="0 0 0" axis="0 0 1" limited="true" range="0 1.1" damping="0.1" />
+                                    <geom type="mesh" mesh="gripper_link" />
+                                </body>
+                                <body name="gripper_sub_link" pos="0.0622 0.04 0" quat="0.980067 0 0 0.198669">
+                                    <inertial pos="0 0 0" mass="0.013" diaginertia="1 1 1" />
+                                    <joint name="gripper_sub" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.1" damping="0.1" />
+                                    <geom type="mesh" mesh="gripper_sub_link" />
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>

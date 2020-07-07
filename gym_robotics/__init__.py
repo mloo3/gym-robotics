@@ -19,3 +19,10 @@ for reward_type in ['sparse', 'dense']:
             kwargs=kwargs,
             max_episode_steps=50,
       )
+
+register(
+      id="OpenMani-v1",
+      entry_point='gym_robotics.envs:OpenManiEnv',
+      kwargs=kwargs,
+      max_episode_steps=50,
+      )
