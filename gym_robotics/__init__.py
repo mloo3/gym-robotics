@@ -22,7 +22,7 @@ for reward_type in ['sparse', 'dense']:
 
 register(
       id="OpenMani-v1",
-      entry_point='gym_robotics.envs:OpenManiEnv',
+      entry_point='gym_robotics.envs:PickEnv',
       kwargs=kwargs,
       max_episode_steps=50,
       )

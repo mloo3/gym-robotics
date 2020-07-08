@@ -13,7 +13,7 @@
 			<site name="target0" pos="0 0 0.5" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere"></site>
 		</body>
 
-		<!-- <include file="open_mani_robot.xml"></include> -->
+		<include file="open_mani_robot.xml"></include>
 		
 		<body pos="1.3 0.75 0.2" name="table0">
 			<geom size="0.25 0.35 0.2" type="box" mass="2000" material="table_mat"></geom>
@@ -28,8 +28,8 @@
 		<light directional="true" ambient="0.2 0.2 0.2" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" castshadow="false" pos="0 0 4" dir="0 0 -1" name="light0"></light>
 	</worldbody>
 
-	<!-- <actuator> -->
-	<!-- 	<position ctrllimited="true" ctrlrange="0 0.2" joint="robot0:l_gripper_finger_joint" kp="30000" name="robot0:l_gripper_finger_joint" user="1"></position> -->
-	<!-- 	<position ctrllimited="true" ctrlrange="0 0.2" joint="robot0:r_gripper_finger_joint" kp="30000" name="robot0:r_gripper_finger_joint" user="1"></position> -->
-	<!-- </actuator> -->
+	<actuator>
+		<position ctrllimited="true" ctrlrange="0 1.1" joint="robot0:gripper" kp="30000" name="gripper" user="1"></position>
+		<position ctrllimited="true" ctrlrange="0 1.1" joint="robot0:gripper_sub" kp="30000" name="gripper_sub" user="1"></position>
+	</actuator>
 </mujoco>
