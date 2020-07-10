@@ -23,7 +23,7 @@
 					<inertial diaginertia="0.0063 0.0059 0.0014" mass="0.9087" pos="0.0081 0.0025 0.0113" quat="0.6458 0.66 -0.274 0.2689"></inertial>
 					<joint axis="0 1 0" damping="1000" name="robot0:head_tilt_joint" range="-0.76 1.45" ref="0.06"></joint>
 					<geom mesh="robot0:head_tilt_link" name="robot0:head_tilt_link" material="robot0:head_mat" class="robot0:blue"></geom>
-					<body name="robot0:head_camera_link" pos="0.055 0 0.0225">
+					<!-- <body name="robot0:head_camera_link" pos="0.055 0 0.0225">
 						<inertial diaginertia="0 0 0" mass="0" pos="0.055 0 0.0225"></inertial>
 						<body name="robot0:head_camera_rgb_frame" pos="0 0.02 0">
 							<inertial diaginertia="0 0 0" mass="0" pos="0 0.02 0"></inertial>
@@ -38,7 +38,7 @@
 								<inertial diaginertia="0 0 0" mass="0" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5"></inertial>
 							</body>
 						</body>
-					</body>
+					</body> -->
 				</body>
 			</body>
 			<body name="robot0:shoulder_pan_link" pos="0.1195 0 0.3486">
@@ -72,7 +72,9 @@
 										<body euler="0 0 0" name="robot0:gripper_link" pos="0.1664 0 0">
 											<inertial diaginertia="0.0024 0.0019 0.0013" mass="1.5175" pos="-0.09 -0.0001 -0.0017" quat="0 0.7071 0 0.7071"></inertial>
 											<geom mesh="robot0:gripper_link" name="robot0:gripper_link" material="robot0:gripper_mat"></geom>
-											<body name="robot0:gripper_camera_link" pos="0.055 0 0.0225">
+
+
+											<!-- <body name="robot0:gripper_camera_link" pos="0.055 0 0.0225">
 												<body name="robot0:gripper_camera_rgb_frame" pos="0 0.02 0">
 													<body name="robot0:gripper_camera_rgb_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">
 														<camera euler="3.1415 0 0" fovy="50" name="gripper_camera_rgb" pos="0 0 0"></camera>
@@ -81,7 +83,7 @@
 												<body name="robot0:gripper_camera_depth_frame" pos="0 0.045 0">
 													<body name="robot0:gripper_camera_depth_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5"></body>
 												</body>
-											</body>
+											</body> -->
 
 											<body childclass="robot0:fetchGripper" name="robot0:r_gripper_finger_link" pos="0 0.0159 0">
 												<inertial diaginertia="0.1 0.1 0.1" mass="4" pos="-0.01 0 0"></inertial>
@@ -103,7 +105,7 @@
 				</body>
 			</body>
 		</body>
-		<body name="robot0:estop_link" pos="-0.1246 0.2389 0.3113" quat="0.7071 0.7071 0 0">
+		<!-- <body name="robot0:estop_link" pos="-0.1246 0.2389 0.3113" quat="0.7071 0.7071 0 0">
 			<inertial diaginertia="0 0 0" mass="0.002" pos="0.0024 -0.0033 0.0067" quat="0.3774 -0.1814 0.1375 0.8977"></inertial>
 			<geom mesh="robot0:estop_link" rgba="0.8 0 0 1" name="robot0:estop_link"></geom>
 		</body>
@@ -118,6 +120,6 @@
 		</body>
 		<body name="robot0:external_camera_body_0" pos="0 0 0">
 			<camera euler="0 0.75 1.57" fovy="43.3" name="external_camera_0" pos="1.3 0 1.2"></camera>
-		</body>
+		</body> -->
 	</body>
 </mujoco>

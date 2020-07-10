@@ -7,8 +7,8 @@
         <material name="table_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.93 0.93 0.93 1"></material>
         <material name="block_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"></material>
         <material name="puck_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"></material>
-        <!-- <material name="robot00:geomMat" shininess="0.03" specular="0.4"></material> -->
-        <!-- <material name="robot00:gripper_finger_mat" shininess="0.03" specular="0.4" reflectance="0"></material> -->
+        <material name="robot0:geomMat" shininess="0.03" specular="0.4"></material>
+        <material name="robot0:gripper_finger_mat" shininess="0.03" specular="0.4" reflectance="0"></material>
         <!-- <material name="robot00:gripper_mat" shininess="0.03" specular="0.4" reflectance="0"></material> -->
         <!-- <material name="robot00:arm_mat" shininess="0.03" specular="0.4" reflectance="0"></material> -->
         <!-- <material name="robot00:head_mat" shininess="0.03" specular="0.4" reflectance="0"></material> -->
@@ -28,31 +28,36 @@
     </asset>
 
     <equality>
-        <weld body1="robot0:mocap" body2="robot0:gripper_main_link" solimp="0.9 0.95 0.001" solref="0.02 1"></weld>
+        <weld body1="robot0:mocap" body2="robot0:gripper_main_link" solimp="0.99 0.99 0.01" solref="0.01 1"></weld>
     </equality>
     
-    <!-- <contact> -->
-    <!--     <exclude body1="robot0:r_gripper_finger_link" body2="robot0:l_gripper_finger_link"></exclude> -->
-    <!--     <exclude body1="robot0:torso_lift_link" body2="robot0:torso_fixed_link"></exclude> -->
-    <!--     <exclude body1="robot0:torso_lift_link" body2="robot0:shoulder_pan_link"></exclude> -->
-    <!-- </contact> -->
+    <contact>
+        <exclude body1="robot0:gripper_link" body2="robot0:gripper_sub_link"></exclude>
+        <!-- <exclude body1="robot0:torso_lift_link" body2="robot0:torso_fixed_link"></exclude> -->
+        <!-- <exclude body1="robot0:torso_lift_link" body2="robot0:shoulder_pan_link"></exclude> -->
+    </contact>
     
-    <!-- <default> -->
-    <!--     <default class="robot0:fetch"> -->
-    <!--         <geom margin="0.001" material="robot0:geomMat" rgba="1 1 1 1" solimp="0.99 0.99 0.01" solref="0.01 1" type="mesh" user="0"></geom> -->
-    <!--         <joint armature="1" damping="50" frictionloss="0" stiffness="0"></joint> -->
-    <!--          -->
-    <!--         <default class="robot0:fetchGripper"> -->
-    <!--             <geom condim="4" margin="0.001" type="box" user="0" rgba="0.356 0.361 0.376 1.0"></geom> -->
-    <!--             <joint armature="100" damping="1000" limited="true" solimplimit="0.99 0.999 0.01" solreflimit="0.01 1" type="slide"></joint> -->
-    <!--         </default> -->
-    <!--  -->
-    <!--         <default class="robot0:grey"> -->
-    <!--             <geom rgba="0.356 0.361 0.376 1.0"></geom> -->
-    <!--         </default> -->
-    <!--         <default class="robot0:blue"> -->
-    <!--             <geom rgba="0.086 0.506 0.767 1.0"></geom> -->
-    <!--         </default> -->
-    <!--     </default> -->
-    <!-- </default> -->
+    <default>
+        <default class="robot0:base">
+            <geom margin="0.001" material="robot0:geomMat" rgba="1 1 0 1" solimp="0.99 0.99 0.01" solref="0.01 1" type="mesh" user="0" />
+            <joint armature="1" damping="50" frictionloss="0" stiffness="0"/>
+
+            <default class="robot0:fetchGripper">
+                <geom condim="4" margin="0.001" user="0" rgba="0.356 0.361 0.376 1.0"></geom>
+                <joint armature="100" damping="100" limited="true" solimplimit="0.99 0.999 0.01" solreflimit="0.01 1"></joint>
+
+                <default class="robot0:pads">
+                    <geom condim="4" margin="0.001" type="box" user="0" rgba="0.1 0.1 1 1" />
+                    <!-- <joint armature="100" damping="1000" limited="true" solimplimit="0.99 0.999 0.01" solreflimit="0.01 1" type="slide"/> -->
+                </default>
+            </default>
+
+            <!-- <default class="robot0:fetchGripper"> -->
+            <!--     <geom condim="4" margin="0.001" type="box" user="0" rgba="0.356 0.361 0.376 1.0"></geom> -->
+            <!--     <joint armature="100" damping="1000" limited="true" solimplimit="0.99 0.999 0.01" solreflimit="0.01 1" type="slide"></joint> -->
+            <!-- </default> -->
+
+
+        </default>
+    </default>
 </mujoco>

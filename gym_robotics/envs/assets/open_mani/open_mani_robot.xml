@@ -5,7 +5,7 @@
         <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 1 0.001" type="box"></geom>
         <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 0.005 1" type="box"></geom>
     </body>
-    <body>
+    <body childclass="robot0:base" name="robot0:base_link" pos="0 0 0">
         <joint armature="0.0001" axis="1 0 0" damping="1e+11" name="robot0:slide0" pos="0 0 0" type="slide"></joint>
         <joint armature="0.0001" axis="0 1 0" damping="1e+11" name="robot0:slide1" pos="0 0 0" type="slide"></joint>
         <joint armature="0.0001" axis="0 0 1" damping="1e+11" name="robot0:slide2" pos="0 0 0" type="slide"></joint>
@@ -18,41 +18,68 @@
                 <geom type="mesh" mesh="robot0:link1" />
                 <body name="robot0:link2" pos="0 0 0.126">
                     <inertial pos="0 0.0008 0.03183" mass="0.94658" diaginertia="1 1 1" />
-                    <joint name="robot0:joint1" pos="0 0 0" axis="0 0 1" limited="true" range="-1.5708 1.5708" damping="1000" />
+                    <joint name="robot0:joint1" pos="0 0 0" axis="0 0 1" limited="true" range="-1.5708 1.5708" damping="100" />
                     <geom type="mesh" mesh="robot0:link2" />
                     <body name="robot0:link3" pos="0 0.069 0.033">
                         <inertial pos="0.01768 -0.06881 0.20524" mass="1.3026" diaginertia="1 1 1" />
-                        <joint name="robot0:joint2" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="10000" />
+                        <joint name="robot0:joint2" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="100" />
                         <geom type="mesh" mesh="robot0:link3" />
                         <body name="robot0:link4" pos="0.03 -0.0115 0.264">
                             <inertial pos="0.12475 -0.05716 0.02979" mass="1.15977" diaginertia="1 1 1" />
-                            <joint name="robot0:joint3" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="10000" />
+                            <joint name="robot0:joint3" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="100" />
                             <geom type="mesh" mesh="robot0:link4" />
                             <body name="robot0:link5" pos="0.195 -0.0575 0.03">
                                 <inertial pos="0.05642 -0.00217 2e-05" mass="0.44688" diaginertia="1 1 1" />
-                                <joint name="robot0:joint4" pos="0 0 0" axis="1 0 0" limited="true" range="-1.5708 1.5708" damping="1000" />
+                                <joint name="robot0:joint4" pos="0 0 0" axis="1 0 0" limited="true" range="-1.5708 1.5708" damping="100" />
                                 <geom type="mesh" mesh="robot0:link5" />
                                 <body name="robot0:link6" pos="0.063 0.045 0">
                                     <inertial pos="0.06831 -0.04457 0" mass="0.43273" diaginertia="1 1 1" />
-                                    <joint name="robot0:joint5" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="1000" />
+                                    <joint name="robot0:joint5" pos="0 0 0" axis="0 1 0" limited="true" range="-1.5708 1.5708" damping="100" />
                                     <geom type="mesh" mesh="robot0:link6" />
                                     <body name="robot0:end_link" pos="0.123 -0.045 0">
                                         <inertial pos="0.00713292 0 0" quat="0.5 0.5 0.5 0.5" mass="0.52919" diaginertia="3.00002 3.00002 3" />
-                                        <joint name="robot0:joint6" pos="0 0 0" axis="1 0 0" limited="true" range="-1.5708 1.5708" damping="0.7" />
+                                        <joint name="robot0:joint6" pos="0 0 0" axis="1 0 0" limited="true" range="-1.5708 1.5708" damping="10" />
                                         <geom type="mesh" mesh="robot0:end_link" />
 
                                         <body euler="0 0 0" name="robot0:gripper_main_link" pos="0 0 0"> 
+
+                                            <inertial diaginertia="0.0024 0.0019 0.0013" mass="1.5175" pos="-0.9 -0.0001 -0.0017" quat="0 0.7071 0 0.7071"></inertial>
+
                                             <geom pos="0.007 0 0" type="mesh" mesh="robot0:gripper_main_link" name="robot0:gripper_main_link"/>
-                                            <body name="robot0:gripper_link" pos="0.0622 -0.04 0" quat="0.980067 0 0 -0.198669">
-                                                <inertial pos="0 0 0" mass="0.013" diaginertia="1 1 1" />
-                                                <joint name="robot0:gripper" pos="0 0 0" axis="0 0 1" limited="true" range="0 1.1" damping="0.1" />
-                                                <geom type="mesh" mesh="robot0:gripper_link" />
+                                                
+                                            <!-- <body childclass="robot0:fetchGripper" name="robot0:gripper_link" pos="0 0.0159 0"> -->
+                                            <!--         <inertial diaginertia="0.1 0.1 0.1" mass="4" pos="&#45;0.01 0 0"></inertial> -->
+                                            <!--         <joint axis="0 1 0" name="robot0:gripper_joint" range="0 0.05"></joint> -->
+                                            <!--         <geom pos="0.09 &#45;0.008 0" size="0.0385 0.007 0.0135" type="box" name="robot0:gripper_link" material="robot0:gripper_finger_mat" condim="4" friction="1 0.05 0.01"></geom> -->
+                                            <!-- </body> -->
+                                            <!-- <body childclass="robot0:fetchGripper" name="robot0:gripper_sub_link" pos="0 &#45;0.0159 0"> -->
+                                                    <!-- <inertial diaginertia="0.1 0.1 0.1" mass="4" pos="&#45;0.01 0 0"></inertial> -->
+                                            <!--         <joint axis="0 &#45;1 0" name="robot0:gripper_sub_joint" range="0 0.05"></joint> -->
+                                            <!--         <geom pos="0.09 0.008 0" size="0.0385 0.007 0.0135" type="box" name="robot0:gripper_sub_link" material="robot0:gripper_finger_mat" condim="4" friction="1 0.05 0.01"></geom> -->
+                                            <!-- </body> -->
+
+                                            <body childclass="robot0:fetchGripper" name="robot0:gripper_link" pos="0.0622 -0.04 0" quat="0.980067 0 0 -0.198669">
+                                                <inertial pos="-0.01 0 0" mass="4" diaginertia="0.1 0.1 0.1" />
+                                                <joint name="robot0:gripper_joint" pos="0 0 0" axis="0 0 1" range="0 0.7" />
+                                                <geom type="mesh" mesh="robot0:gripper_link" condim="4" friction="1 0.05 0.01"/>
+
+                                                <body childclass="robot0:pads" name="robot0:r_pad" pos="0 0 0">
+                                                    <inertial diaginertia="0.1 0.1 0.1" mass="4" pos="-0.01 0 0"/>
+                                                    <geom pos="0.08 -0.02 0" size="0.03 0.007 0.015" type="box" name="robot0:r_pad" condim="4" friction="1 0.05 0.01"/>
+                                                </body>
                                             </body>
-                                            <body name="robot0:gripper_sub_link" pos="0.0622 0.04 0" quat="0.980067 0 0 0.198669">
-                                                <inertial pos="0 0 0" mass="0.013" diaginertia="1 1 1" />
-                                                <joint name="robot0:gripper_sub" pos="0 0 0" axis="0 0 -1" limited="true" range="0 1.1" damping="0.1" />
-                                                <geom type="mesh" mesh="robot0:gripper_sub_link" />
+                                            <body childclass="robot0:fetchGripper" name="robot0:gripper_sub_link" pos="0.0622 0.04 0" quat="0.980067 0 0 0.198669">
+                                                <inertial pos="-0.01 0 0" mass="4" diaginertia="0.1 0.1 0.1" />
+                                                <joint name="robot0:gripper_sub_joint" pos="0 0 0" axis="0 0 -1" range="0 0.7" />
+                                                <geom type="mesh" mesh="robot0:gripper_sub_link" condim="4" friction="1 0.05 0.01"/>
+
+                                                <body childclass="robot0:pads" name="robot0:l_pad" pos="0 0 0">
+                                                    <inertial diaginertia="0.1 0.1 0.1" mass="4" pos="-0.01 0 0"/>
+                                                    <geom pos="0.08 0.02 0" size="0.03 0.007 0.015" type="box" name="robot0:l_pad" condim="4" friction="1 0.05 0.01"/>
+                                                </body>
+
                                             </body>
+
                                             <site name="robot0:grip" pos="0.02 0 0" rgba="0 0 0 0" size="0.02 0.02 0.02"></site>
                                         </body>
 

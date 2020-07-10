@@ -65,8 +65,8 @@ class OpenManiEnv(robot_env.RobotEnv):
 
     def _step_callback(self):
         if self.block_gripper:
-            self.sim.data.set_joint_qpos('robot0:gripper', 0.)
-            self.sim.data.set_joint_qpos('robot0:gripper_sub', 0.)
+            self.sim.data.set_joint_qpos('robot0:gripper_joint', 0.)
+            self.sim.data.set_joint_qpos('robot0:gripper_sub_joint', 0.)
             self.sim.forward()
 
     def _set_action(self, action):
@@ -167,7 +167,8 @@ class OpenManiEnv(robot_env.RobotEnv):
             goal += self.target_offset
             goal[2] = self.height_offset
             if self.target_in_the_air and self.np_random.uniform() < 0.5:
-                goal[2] += self.np_random.uniform(0, 0.45)
+                goal[2] += self.np_random.uniform(0, 0.27)
+                # goal[2] += 0.27
         else:
             goal = self.initial_gripper_xpos[:3] + self.np_random.uniform(-self.target_range, self.target_range, size=3)
         return goal.copy()
@@ -183,7 +184,8 @@ class OpenManiEnv(robot_env.RobotEnv):
         self.sim.forward()
 
         # Move end effector into position.
-        gripper_target = np.array([-0.498, 0.005, -0.431 + self.gripper_extra_height]) + self.sim.data.get_site_xpos('robot0:grip')
+        gripper_target = np.array([-0.1, 0.005, -0.431 + self.gripper_extra_height]) + self.sim.data.get_site_xpos('robot0:grip')
+        # gripper_target = np.array([-0.498, 0.005, -0.431 + self.gripper_extra_height]) + self.sim.data.get_site_xpos('robot0:grip')
         gripper_rotation = np.array([1., 0., 1., 0.])
         self.sim.data.set_mocap_pos('robot0:mocap', gripper_target)
         self.sim.data.set_mocap_quat('robot0:mocap', gripper_rotation)

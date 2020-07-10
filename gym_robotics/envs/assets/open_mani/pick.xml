@@ -21,7 +21,8 @@
 		
 		<body name="object0" pos="0.025 0.025 0.025">
 			<joint name="object0:joint" type="free" damping="0.01"></joint>
-			<geom size="0.025 0.025 0.025" type="box" condim="3" name="object0" material="block_mat" mass="2"></geom>
+			<geom size="0.03 0.03 0.03" type="box" condim="4" name="object0" material="block_mat" mass="2" friction="1 0.05 0.01" ></geom>
+			<!-- <geom size="0.025 0.025 0.025" type="box" condim="4" name="object0" material="block_mat" mass="1" friction="1 0.05 0.01" ></geom> -->
 			<site name="object0" pos="0 0 0" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere"></site>
 		</body>
 
@@ -29,7 +30,10 @@
 	</worldbody>
 
 	<actuator>
-		<position ctrllimited="true" ctrlrange="0 1.1" joint="robot0:gripper" kp="30000" name="gripper" user="1"></position>
-		<position ctrllimited="true" ctrlrange="0 1.1" joint="robot0:gripper_sub" kp="30000" name="gripper_sub" user="1"></position>
+		<position ctrllimited="true" ctrlrange="0 0.7" joint="robot0:gripper_joint" kp="30000" name="gripper" user="1" ></position>
+		<position ctrllimited="true" ctrlrange="0 0.7" joint="robot0:gripper_sub_joint" kp="30000" name="gripper_sub" user="1"></position>
+
+		<!-- <position ctrllimited="true" ctrlrange="0 1.2" joint="robot0:gripper_joint" kp="30000" name="gripper" user="1" forcelimited="true" forcerange="&#45;5000 5000"></position> -->
+		<!-- <position ctrllimited="true" ctrlrange="0 1.2" joint="robot0:gripper_sub_joint" kp="30000" name="gripper_sub" user="1" forcelimited="true" forcerange="&#45;5000 5000"></position> -->
 	</actuator>
 </mujoco>
