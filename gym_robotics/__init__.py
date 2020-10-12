@@ -7,7 +7,7 @@ for reward_type in ['sparse', 'dense']:
       }
 
       register(
-            id='Test{}-v1'.format(suffix),
+            id='ModifiedPickAndPlace{}-v1'.format(suffix),
             entry_point='gym_robotics.envs:FetchPickAndPlaceEnv',
             kwargs=kwargs,
             max_episode_steps=50,
