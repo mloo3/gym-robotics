@@ -45,6 +45,8 @@ class PlayDemo(fetch_env.FetchEnv):
             initial_qpos,
             reward_type,
         )
+        self.metadata['render.modes'].append('controller')
+        self.metadata['render.modes'].append('keyboard')
 
     def _sample_goal(self):
         if self.goal_loc is None:
@@ -64,6 +66,8 @@ class PlayDemo(fetch_env.FetchEnv):
                 object_qpos[:2] = self.obj_loc
                 self.sim.data.set_joint_qpos("object0:joint", object_qpos)
 
+            self.actions = []
+
             self.sim.forward()
             return True
 
@@ -76,9 +80,10 @@ class PlayDemo(fetch_env.FetchEnv):
     def render(self, mode="human", width=DEFAULT_SIZE, height=DEFAULT_SIZE):
         self.mode = mode
         if mode == 'controller':
-            self._get_viewer(mode).render()
+            self._render_callback()
+            return self._get_viewer(mode).render()
         else:
-            super().render(mode, width, height)
+            return super().render(mode, width, height)
 
     def _get_viewer(self, mode):
         self.viewer = self._viewers.get(mode)
